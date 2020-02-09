@@ -1,0 +1,17 @@
+html body {
+    background:url('../Images/bgimg.jpeg');
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  html:before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
+    background: rgba(0,0,0,.5);
+  }
+.formDesign{
+    padding: 100px;
+    
+}

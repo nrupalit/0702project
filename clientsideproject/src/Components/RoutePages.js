@@ -12,7 +12,7 @@ class RoutePages extends Component {
                 <Switch>
                     <Route path="/login" component = { App }/>
                     <Route exact path="/" component = { Index }/>
-                    <Route exact path="/try" component = { AntDTry }/>
+                    <Route path="/try" component = { AntDTry }/>
                     <Route component={NotFoundPage} />
                 </Switch>
                 <ul>
