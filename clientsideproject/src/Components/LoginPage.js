@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Alert, Form, Button, ButtonToolbar , InputGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/loginpage.css';
-import { Card, Input } from 'antd';
+import { Card } from 'antd';
 import "antd/dist/antd.css";
 
 
@@ -42,7 +42,7 @@ class LoginPage extends Component {
                     this.setState({token: res.data.data.token})
                     console.log("data", res);
                     this.setState({error: res.data.data.token});
-                    this.props.history.push('/');
+                    this.props.history.push('/apppage');
                 }
                 
             })
