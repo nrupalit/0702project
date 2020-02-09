@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { withRouter } from "react-router-dom";
+
 
 class LoginPage extends Component {
     constructor(){
@@ -9,7 +11,8 @@ class LoginPage extends Component {
                 usernameEmail: "",
                 password: ""
             },
-            error: ""
+            error: "",
+            token:""
         }
     }
     inputChangeHandler = (e) => {
@@ -30,8 +33,10 @@ class LoginPage extends Component {
             API.post('',{usernameEmail, password})
             .then((res) => {
                 if (res.status === 200){
-                    this.setState({error: res.data.message});
-                    this.props.history.push('/home');
+                    this.setState({token: res.data.data.token})
+                    console.log("data", res);
+                    this.setState({error: res.data.data.token});
+                    this.props.history.push('/');
                 }
                 
             })
@@ -55,6 +60,8 @@ class LoginPage extends Component {
             </div>
         )
     }
+    
 }
 
-export default LoginPage
+
+export default withRouter(LoginPage)
