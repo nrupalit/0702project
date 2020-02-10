@@ -3,6 +3,8 @@ import {  Switch , Link , BrowserRouter as Router, Route, Redirect  } from 'reac
 import Index from './Index';
 import NotFoundPage from './NotFoundPage';
 import LoginPage from './LoginPage';
+import Posts from './reduxFolder/Posts';
+import Postform from './reduxFolder/Postform';
 
 class RoutePages extends Component {
     render () {
@@ -14,7 +16,9 @@ class RoutePages extends Component {
                     <Route exact path="/" render={() => (
                         <Redirect to="/login"/>
                     )}/>
-                    <Route component={NotFoundPage} />
+                    <Route name="post" path="/post" component={ Posts } />
+                    <Route name="postform" path="/postform" component={ Postform } />
+                    <Route component={ NotFoundPage } />
                 </Switch>
                 <ul>
                     <li>

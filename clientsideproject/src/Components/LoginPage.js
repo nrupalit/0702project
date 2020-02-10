@@ -41,7 +41,9 @@ class LoginPage extends Component {
                 if (res.status === 200){
                     this.setState({token: res.data.data.token})
                     console.log("data", res);
-                    this.setState({error: res.data.data.token});
+                    // this.setState({error: res.data.data.token});
+                    this.setState({token: res.data.data.token});
+                    sessionStorage.setItem('sessionItem', JSON.stringify(this.state.token));
                     this.props.history.push('/apppage');
                 }
                 
@@ -53,6 +55,10 @@ class LoginPage extends Component {
                 
             })
         }
+
+        // getSessionData = () => {
+        //     let data = sessionStorage.getItem
+        // } 
 
     render() {
         return (
