@@ -11,7 +11,7 @@ class Postform extends Component {
     onChange = (e) => {
         this.setState({[e.target.name]:[e.target.value]})
     }
-    onSubmit(e){
+    onSubmit =(e) =>{
         e.preventDefault();
         const posts = {
             title: this.state.title,
@@ -21,8 +21,11 @@ class Postform extends Component {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
-            }
+            },
+            body: JSON.stringify(posts)
         })
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
     render () {
         return (

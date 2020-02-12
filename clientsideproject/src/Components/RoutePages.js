@@ -7,6 +7,7 @@ import Posts from './reduxFolder/Posts';
 import Postform from './reduxFolder/Postform';
 
 class RoutePages extends Component {
+    
     render () {
         return (
             <Router>
@@ -22,7 +23,10 @@ class RoutePages extends Component {
                 </Switch>
                 <ul>
                     <li>
-                        <Link to="/login">Login</Link>
+                        <Link to="/login">
+                            Login
+                            {/* <button onClick = {this.props.getData} >Get data</button> */}
+                        </Link>
                     </li>
                 </ul>
             </Router>

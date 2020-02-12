@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LessonOne from './reactDocs/lessonOne';
 
 
 class Index extends Component {
@@ -13,6 +14,7 @@ class Index extends Component {
         return (
             <div>
                 <h1>hello world</h1>
+                <LessonOne />
             </div>
         )
     }

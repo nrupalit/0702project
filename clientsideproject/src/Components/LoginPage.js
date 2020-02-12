@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/loginpage.css';
 import { Card } from 'antd';
 import "antd/dist/antd.css";
+// import RoutePages from './RoutePages';
 
 
 
@@ -43,7 +44,7 @@ class LoginPage extends Component {
                     console.log("data", res);
                     // this.setState({error: res.data.data.token});
                     this.setState({token: res.data.data.token});
-                    sessionStorage.setItem('sessionItem', JSON.stringify(this.state.token));
+                    localStorage.setItem('sessionItem', JSON.stringify(this.state.token));
                     this.props.history.push('/apppage');
                 }
                 
@@ -56,9 +57,11 @@ class LoginPage extends Component {
             })
         }
 
-        // getSessionData = () => {
-        //     let data = sessionStorage.getItem
-        // } 
+        getSessionData = () => {
+            let data = sessionStorage.getItem('sessionItem');
+            console.log(data);
+            
+        } 
 
     render() {
         return (
@@ -101,6 +104,7 @@ class LoginPage extends Component {
                                 <Button type="submit" variant="outline-secondary">Submit</Button>
                             </ButtonToolbar>
                         </Form>
+                        {/* <RoutePages getItem={this.getItem} /> */}
                 </Card>
                 {/* <form onSubmit={this.onSubmit}>
                     <input type="text" name="usernameEmail" onChange={(e) => this.inputChangeHandler.call(this, e)} value={this.state.formValue.usernameEmail} />
