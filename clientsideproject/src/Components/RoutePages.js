@@ -5,6 +5,7 @@ import NotFoundPage from './NotFoundPage';
 import LoginPage from './LoginPage';
 import Posts from './reduxFolder/Posts';
 import Postform from './reduxFolder/Postform';
+import LessonTwo from './reactDocs/lessonTwo';
 
 class RoutePages extends Component {
     
@@ -19,6 +20,7 @@ class RoutePages extends Component {
                     )}/>
                     <Route name="post" path="/post" component={ Posts } />
                     <Route name="postform" path="/postform" component={ Postform } />
+                    <Route name="react" path="/react" component={ LessonTwo } />
                     <Route component={ NotFoundPage } />
                 </Switch>
                 <ul>

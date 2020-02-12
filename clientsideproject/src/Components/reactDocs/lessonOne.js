@@ -71,8 +71,12 @@ export default class LessonOne extends Component {
         const unreadMessage = props.unreadMessage;
         // const messages = this.state.message;
         const messages = unreadMessage.map((meg)=>
-            <li>{meg}</li>
+            <li key={meg.toString()}>{meg}</li>
         )
+        //or use Index
+        // const messages = unreadMessage.map((meg, index)=>
+        //     <li key={index}>{meg}</li>
+        // )
         return(
             <div>
                 <h1>Hello!</h1>
