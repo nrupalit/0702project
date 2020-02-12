@@ -7,6 +7,7 @@ import Posts from './reduxFolder/Posts';
 import Postform from './reduxFolder/Postform';
 import LessonTwo from './reactDocs/lessonTwo';
 import LessonThree from './reactDocs/lessonThree';
+import App from '../App';
 
 class RoutePages extends Component {
     
@@ -16,6 +17,7 @@ class RoutePages extends Component {
                 <Switch>
                     <Route name="apppage" path="/apppage" component = { Index }/>
                     <Route name="login" path="/login" component = { LoginPage }/>
+                    <Route name="app" path="/app" component = { App }/>
                     <Route exact path="/" render={() => (
                         <Redirect to="/login"/>
                     )}/>

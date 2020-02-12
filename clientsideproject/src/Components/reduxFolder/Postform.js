@@ -5,7 +5,8 @@ class Postform extends Component {
         super(props);
         this.state = {
             title: '',
-            body: ''
+            body: '',
+            data: ''
         }
     }
     onChange = (e) => {
@@ -25,7 +26,10 @@ class Postform extends Component {
             body: JSON.stringify(posts)
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data);
+            this.setState({data:data})
+        })
     }
     render () {
         return (
@@ -47,6 +51,7 @@ class Postform extends Component {
                     <hr />
                     <button type="submit">Submit</button>
                 </form>
+                {this.state.data}
             </div>
         )
     }
