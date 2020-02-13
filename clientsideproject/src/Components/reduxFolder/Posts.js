@@ -1,26 +1,44 @@
 import React, { Component } from 'react';
-import Postform from './Postform';
+import PropsTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../Actions/PostAction';
+import { fetchPosts } from '../../actions/postAction';
 
 class Posts extends Component {
     componentWillMount(){
         this.props.fetchPosts();
     }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.newPost){
+            this.props.posts.unshift(nextProps.newPost);
+            
+        }
+
+    }
+
     render () {
-        const postItem = this.state.posts.map(post => (
+        const postItem = this.props.posts.map(post => (
             <div key={post.id}>
                 <h3>{post.title}</h3>
                 <p>{post.body}</p>
             </div>
-        ))
+        ));
         return (
             <div>
-                <Postform />
+                {/* <Postform /> */}
                 { postItem }
             </div>
-        )
+        );
     }
 }
+Posts.PropsTypes = {
+    fetchPosts: PropsTypes.func.isRequired,
+    posts: PropsTypes.array.isRequired,
+    newPost: PropsTypes.object
+};
 
-export default connect(null,{ fetchPosts })(Posts);
+const mapStateToProps = state => ({
+    posts: state.posts.items,
+    newPost: state.posts.item
+});
+
+export default connect(mapStateToProps, { fetchPosts })(Posts);
