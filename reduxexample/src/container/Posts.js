@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { fetchPosts } from '../actions/postActions';
-import { ContainerPost } from '../components/ComponentPost';
+// import { ContainerPost } from '../components/ComponentPost';
 
 
 class Posts extends Component {
-    componentDidMount = () => {
+    UNSAFE_componentWillMount = () => {
         this.props.fetchPosts();
     }
-    componentWillReceiveProps = (nextProps) => {
+    UNSAFE_componentWillReceiveProps = (nextProps) => {
         if (nextProps.newPost){
             this.props.posts.unshift(nextProps.newPost);
         }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createPosts } from '../actions/postActions';
 import { PropTypes } from "prop-types";
+import { InputForm } from '../components/ComponentPostForm'
 
 class PostForm extends Component {
     constructor(){
@@ -11,7 +12,7 @@ class PostForm extends Component {
             body: '',
         }
     }
-    handleChange = (e) =>{
+    onChange = (e) =>{
         this.setState({[e.target.name]: e.target.value})
     }
     onSubmit = (e) => {
@@ -28,19 +29,24 @@ class PostForm extends Component {
         return (
             <div>
                 <h1>Add Posts</h1>
+                {/* <FormVariable onSubmit={(e)=> this.onSubmit(e)} buttonName='Submit'>
+                    <InputForm val='Title:' type='text' name='title' onChange={(e)=> this.onChange(e)} value={this.state.title} />
+                    <InputForm val='Body:' type='text' name='body' onChange={(e)=> this.onChange(e)} value={this.state.body} />
+                </FormVariable> */}
                 <form onSubmit={this.onSubmit}>
-                    <label>Title:</label><br />
-                    <input type='text' name='title' onChange={this.handleChange} value={this.state.title}  /><br /><hr />
-                    <label>Body:</label><br />
-                    <textarea name='body'onChange={this.handleChange} value={this.state.body}  /><br />
-                    <button type='submit'>Submit</button>
+                    {/* <label>Title:</label><br /> */}
+                    <InputForm val='Title:' type='text' name='title' onChange={(e)=> this.onChange(e)} value={this.state.title} />
+                    {/* <input type='text' name='title' onChange={this.onChange} value={this.state.title}  /><br /><hr />
+                    <label>Body:</label><br /> */}
+                    <InputForm val='Body:' type='text' name='body' onChange={(e)=> this.onChange(e)} value={this.state.body} />
+                    {/* <textarea name='body'onChange={this.onChange} value={this.state.body}  /><br /> */}
+                    <button>Submit</button>
                 </form>
             </div>
         )
     }
 }
 
-const postcontainer = new PostForm();
 
 PostForm.propTypes = {
     createPosts: PropTypes.func.isRequired,
