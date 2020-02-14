@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Posts from './components/Posts';
-import PostForm from './components/PostForm';
+import Posts from './container/Posts';
+import PostForm from './container/PostForm';
 import { Provider } from 'react-redux';
 import { store } from './store';
 
@@ -11,7 +11,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <header className="App">
-          <img src={logo} className="App-logo" alt="logo" style = {{width:'600px',height:'auto', margin:0, float:"left"}} />
+          <img src={logo} className="App-logo" alt="logo" style = {{width:'100px',height:'auto', margin:0, float:"left"}} />
         </header>
         <PostForm />
         <hr />
