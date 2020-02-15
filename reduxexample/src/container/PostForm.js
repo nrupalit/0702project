@@ -21,28 +21,23 @@ class PostForm extends Component {
             title: this.state.title,
             body: this.state.body
         }
-        this.props.createPosts(posts);
-                 
-        
+        this.props.createPosts(posts);   
     }
-    render () {
-        return (
+    FormPost = () => {
+        return(
             <div>
-                <h1>Add Posts</h1>
-                {/* <FormVariable onSubmit={(e)=> this.onSubmit(e)} buttonName='Submit'>
-                    <InputForm val='Title:' type='text' name='title' onChange={(e)=> this.onChange(e)} value={this.state.title} />
-                    <InputForm val='Body:' type='text' name='body' onChange={(e)=> this.onChange(e)} value={this.state.body} />
-                </FormVariable> */}
+                <h1>Add Post</h1>
                 <form onSubmit={this.onSubmit}>
-                    {/* <label>Title:</label><br /> */}
                     <InputForm val='Title:' type='text' name='title' onChange={(e)=> this.onChange(e)} value={this.state.title} />
-                    {/* <input type='text' name='title' onChange={this.onChange} value={this.state.title}  /><br /><hr />
-                    <label>Body:</label><br /> */}
                     <InputForm val='Body:' type='text' name='body' onChange={(e)=> this.onChange(e)} value={this.state.body} />
-                    {/* <textarea name='body'onChange={this.onChange} value={this.state.body}  /><br /> */}
                     <button>Submit</button>
                 </form>
             </div>
+        );
+    }
+    render () {
+        return (
+            <this.FormPost />
         )
     }
 }
