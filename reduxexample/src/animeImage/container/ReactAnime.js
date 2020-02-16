@@ -25,10 +25,9 @@ export default class ReactAnime extends Component {
                     let height = x * h / gridX + "px";
                     let div = document.createElement("div");
                     let tran = document.getElementsByClassName('slice')[0].appendChild(div);
-        
                     tran.style.top = height;
                     tran.style.height = h / gridX + "px";
-                    tran.style.width = w + "px";
+                    tran.style.width = w  + "px";
                     tran.style.backgroundImage = "url("+image+")";
                     tran.style.backgroundPosition = "0px -" + height;
                     tran.style.backgroundSize = w + "px";
